@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>فرم ثبت مشخصات هواداران</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #eaf4ed;
+            color: #26382c;
+            line-height: 2;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px #00000015;
+        }
+
+        h1 {
+            text-align: center;
+            color: #087443;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccd5e4;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        button, .button {
+            display: inline-block;
+            background: #087443;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 20px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        #message {
+            color: #087443;
+            margin-top: 20px;
+        }
+
+        .note {
+            background: #eff9f2;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>فرم ثبت مشخصات هوادار</h1>
+
+    <p>
+        از علاقه‌مندی شما به برنامه تماشای مسابقه تیم ملی
+        فوتبال ایران سپاسگزاریم.
+    </p>
+
+    <p>
+        لطفاً اطلاعات زیر را تکمیل کنید.
+        موارد ستاره‌دار الزامی هستند.
+    </p>
+
+    <form id="fanForm">
+
+        <label for="firstName">نام *</label>
+
+        <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+        >
+
+        <label for="lastName">نام خانوادگی *</label>
+
+        <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            required
+        >
+
+        <label for="phone">شماره تماس *</label>
+
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="09123456789"
+            pattern="09[0-9]{9}"
+            required
+        >
+
+        <label for="email">ایمیل</label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+        >
+
+        <label for="attendance">وضعیت حضور *</label>
+
+        <select id="attendance" name="attendance" required>
+            <option value="">انتخاب کنید</option>
+            <option value="حضور دارم">در برنامه حضور دارم</option>
+            <option value="هنوز مطمئن نیستم">هنوز مطمئن نیستم</option>
+            <option value="امکان حضور ندارم">امکان حضور ندارم</option>
+        </select>
+
+        <label for="messageText">پیام یا توضیحات</label>
+
+        <textarea
+            id="messageText"
+            name="messageText"
+            rows="4"
+            placeholder="نظر یا توضیحات خود را بنویسید..."
+        ></textarea>
+
+        <div class="center">
+            <button type="submit">ثبت فرم</button>
+        </div>
+
+    </form>
+
+    <div id="message" role="status" aria-live="polite"></div>
+
+    <p class="note">
+        این فرم نمونه آموزشی است. اطلاعات واردشده ذخیره یا
+        برای برگزارکننده ارسال نمی‌شوند.
+    </p>
+
+    <div class="center">
+        <a href="match.html" class="button">
+            → بازگشت به اطلاعات مسابقه
+        </a>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById("fanForm")
+        .addEventListener("submit", function(event) {            event.preventDefault();
+document.getElementById("message").textContent =
+                "فرم از نظر فیلدهای الزامی بررسی شد؛ " +
+                "اما اطلاعات ذخیره یا ارسال نشده‌اند.";
+
+            this.reset();
+        });
+</script>
+
+</body>
+</html>
